@@ -84,7 +84,6 @@ class ImageServices {
     imageLib.Image? usedImage =
         imageLib.copyResize(image!, width: 900, height: 600);
     customImageFilter.subFilters = [
-      ConvolutionSubFilter.fromKernel(sharpenKernel),
       // ConvolutionSubFilter.fromKernel(sharpenKernel),
     ];
     return await applyFilter(<String, dynamic>{

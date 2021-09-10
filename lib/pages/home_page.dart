@@ -27,7 +27,8 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    controller = CameraController(widget.cameras![0], ResolutionPreset.medium);
+    controller =
+        CameraController(widget.cameras![0], ResolutionPreset.veryHigh);
     controller!.initialize().then((_) {
       if (!mounted) {
         return;
@@ -190,7 +191,8 @@ class _HomePageState extends State<HomePage> {
   Future<void> startAllOver() async {
     filteredImage = [];
     await controller!.dispose();
-    controller = CameraController(widget.cameras![0], ResolutionPreset.medium);
+    controller =
+        CameraController(widget.cameras![0], ResolutionPreset.veryHigh);
     await controller!.initialize().then((_) {
       if (!mounted) {
         return;
