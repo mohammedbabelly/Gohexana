@@ -51,7 +51,7 @@ class _GenerateCodePageState extends State<GenerateCodePage> {
                     await WcFlutterShare.share(
                         sharePopupTitle: "Image from Gohexana",
                         subject: "Image from Gohexana",
-                        text: 'Image from Gohexana',
+                        text: widget.model!.toRawJson(),
                         fileName: 'Gohexana.png',
                         mimeType: 'image/png',
                         bytesOfFile: bytes.buffer.asUint8List());
@@ -69,9 +69,7 @@ class _GenerateCodePageState extends State<GenerateCodePage> {
                 Container(
                     height: MediaQuery.of(context).size.height / 2,
                     child: widget.model!.image != null
-                        //TODO:
-                        ? Image.network(baseUrl + 'MyCode.png')
-                        // ? Image.network('baseUrl${widget.model!.image}')
+                        ? Image.network('$baseUrl${widget.model!.image}')
                         : Image.file(widget.file!)),
               Column(
                 children: _buildDecSection(),

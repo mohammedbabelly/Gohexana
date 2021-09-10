@@ -17,6 +17,7 @@ class CodeApi {
       http.StreamedResponse response = await request.send();
       var responseBytes = await response.stream.toBytes();
       var responseString = utf8.decode(responseBytes);
+      print(responseString);
       if (response.statusCode != 200)
         BotToast.showText(text: 'Status Code: ${response.statusCode}');
       var model = CodeModel.fromRawJson(responseString);
@@ -24,8 +25,8 @@ class CodeApi {
       closeLoading();
       return model;
     } catch (_) {
-      BotToast.showText(text: _.toString());
       closeLoading();
+      BotToast.showText(text: _.toString());
       return null;
     }
   }
@@ -45,8 +46,8 @@ class CodeApi {
       closeLoading();
       return res;
     } catch (_) {
-      BotToast.showText(text: _.toString());
       closeLoading();
+      BotToast.showText(text: _.toString());
       return null;
     }
   }
